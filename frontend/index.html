@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CreditPilot AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <h1>
+        🤖 CreditPilot AI
+    </h1>
+
+    <p>
+        AI Loan Prediction & Financial Risk Analysis
+    </p>
+
+
+    <!-- ================================================= -->
+    <!-- AI AVATAR -->
+    <!-- ================================================= -->
+
+    <div class="ai-avatar">
+
+        <div class="avatar-face">
+            🤖
+        </div>
+
+        <div class="avatar-status">
+            ● AI Online
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- THEME BUTTON -->
+    <!-- ================================================= -->
+
+    <button
+        type="button"
+        class="theme-btn"
+        onclick="toggleTheme()"
+    >
+        🌙 Toggle Theme
+    </button>
+
+
+    <!-- ================================================= -->
+    <!-- LOAN INPUT -->
+    <!-- ================================================= -->
+
+    <div class="input-box">
+
+
+        <!-- MONTHLY INCOME -->
+
+        <label for="income">
+            💰 Monthly Income
+        </label>
+
+        <input
+            type="number"
+            id="income"
+            placeholder="Example: 50000"
+            min="1"
+        >
+
+
+        <!-- LOAN AMOUNT -->
+
+        <label for="loan">
+            🏦 Loan Amount
+        </label>
+
+        <input
+            type="number"
+            id="loan"
+            placeholder="Example: 500000"
+            min="1"
+        >
+
+
+        <!-- CREDIT SCORE -->
+
+        <label for="score">
+            ⭐ Credit Score
+        </label>
+
+        <input
+            type="number"
+            id="score"
+            placeholder="300 - 850"
+            min="300"
+            max="850"
+        >
+
+
+        <!-- EXISTING EMI -->
+
+        <label for="existingEMI">
+            💳 Existing Monthly EMI
+        </label>
+
+        <input
+            type="number"
+            id="existingEMI"
+            placeholder="Example: 5000"
+            min="0"
+        >
+
+
+        <!-- EXISTING LOANS -->
+
+        <label for="existingLoans">
+            📋 Number of Existing Loans
+        </label>
+
+        <input
+            type="number"
+            id="existingLoans"
+            placeholder="Example: 1"
+            min="0"
+        >
+
+
+        <!-- ================================================= -->
+        <!-- NOMINEE DETAILS -->
+        <!-- ================================================= -->
+
+        <div class="nominee-card">
+
+
+            <h2>
+                👤 Nominee Details
+            </h2>
+
+
+            <!-- NOMINEE NAME -->
+
+            <label for="nomineeName">
+                Nominee Full Name
+            </label>
+
+            <input
+                type="text"
+                id="nomineeName"
+                placeholder="Enter nominee full name"
+                autocomplete="name"
+            >
+
+
+            <!-- RELATIONSHIP -->
+
+            <label for="nomineeRelation">
+                Relationship
+            </label>
+
+            <select
+                id="nomineeRelation"
+            >
+
+                <option value="">
+                    Select Relationship
+                </option>
+
+                <option value="Father">
+                    Father
+                </option>
+
+                <option value="Mother">
+                    Mother
+                </option>
+
+                <option value="Spouse">
+                    Spouse
+                </option>
+
+                <option value="Sibling">
+                    Sibling
+                </option>
+
+                <option value="Child">
+                    Child
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- NOMINEE AGE -->
+
+            <label for="nomineeAge">
+                Nominee Age
+            </label>
+
+            <input
+                type="number"
+                id="nomineeAge"
+                placeholder="Enter age (18-100)"
+                min="18"
+                max="100"
+            >
+
+
+            <!-- NOMINEE PHONE -->
+
+            <label for="nomineePhone">
+                Nominee Phone
+            </label>
+
+            <input
+                type="tel"
+                id="nomineePhone"
+                placeholder="10-digit mobile number"
+                maxlength="10"
+                inputmode="numeric"
+            >
+
+
+            <!-- NOMINEE DOB -->
+
+            <label for="nomineeDOB">
+                Nominee Date of Birth
+            </label>
+
+            <input
+                type="date"
+                id="nomineeDOB"
+            >
+
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- VOICE INPUT -->
+        <!-- ================================================= -->
+
+        <button
+            type="button"
+            class="voice-btn"
+            onclick="startVoice()"
+        >
+            🎤 Voice Input
+        </button>
+
+
+        <p id="voiceText">
+            Say: income, loan amount and credit score
+        </p>
+
+
+        <!-- ================================================= -->
+        <!-- PREDICT -->
+        <!-- ================================================= -->
+
+        <button
+            type="button"
+            onclick="predictLoan()"
+        >
+            🚀 Predict Loan
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- LOGIN -->
+        <!-- ================================================= -->
+
+        <button
+            type="button"
+            class="login-btn"
+            onclick="loginUser()"
+        >
+            🔐 Login
+        </button>
+
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- RESULT -->
+    <!-- ================================================= -->
+
+    <div id="result">
+
+        Waiting for Prediction...
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- DOWNLOAD REPORT -->
+    <!-- ================================================= -->
+
+    <button
+        type="button"
+        class="report-btn"
+        onclick="downloadReport()"
+    >
+        📄 Download Report
+    </button>
+
+
+    <hr>
+
+
+    <!-- ================================================= -->
+    <!-- EMI CALCULATOR -->
+    <!-- ================================================= -->
+
+    <h2>
+        💰 EMI Calculator
+    </h2>
+
+
+    <!-- INTEREST -->
+
+    <label for="interest">
+        Interest Rate (%)
+    </label>
+
+    <input
+        type="number"
+        id="interest"
+        placeholder="8.5"
+        value="8.5"
+        min="0"
+        step="0.01"
+    >
+
+
+    <!-- TENURE -->
+
+    <label for="years">
+        Loan Tenure (Years)
+    </label>
+
+    <input
+        type="number"
+        id="years"
+        placeholder="5"
+        value="5"
+        min="1"
+        max="30"
+        step="1"
+    >
+
+
+    <button
+        type="button"
+        onclick="calculateEMI()"
+    >
+        🧮 Calculate EMI
+    </button>
+
+
+    <!-- ================================================= -->
+    <!-- EMI RESULTS -->
+    <!-- ================================================= -->
+
+    <div class="ai-card">
+
+
+        <h3>
+            💸 Monthly EMI
+        </h3>
+
+        <p id="emi">
+            ₹0
+        </p>
+
+
+        <h3>
+            📈 Total Interest
+        </h3>
+
+        <p id="interestAmount">
+            ₹0
+        </p>
+
+
+        <h3>
+            🏦 Total Payment
+        </h3>
+
+        <p id="totalPayment">
+            ₹0
+        </p>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ================================================= -->
+    <!-- AI LOAN COMPARISON -->
+    <!-- ================================================= -->
+
+    <div class="comparison-card">
+
+
+        <h2>
+            🏦 AI Loan Comparison
+        </h2>
+
+
+        <p>
+            Compare estimated loan offers from major banks.
+        </p>
+
+
+        <button
+            type="button"
+            onclick="compareLoans()"
+        >
+            🔍 Compare Best Offers
+        </button>
+
+
+        <div id="comparisonResult">
+
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ================================================= -->
+    <!-- LOAN COMPARISON TABLE -->
+    <!-- ================================================= -->
+
+    <div class="comparison-card">
+
+
+        <h2>
+            📊 Loan Comparison Table
+        </h2>
+
+
+        <button
+            type="button"
+            onclick="compareLoans()"
+        >
+            🏦 Compare Banks
+        </button>
+
+
+        <div style="overflow-x:auto;">
+
+
+            <table id="loanTable">
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Bank
+                        </th>
+
+                        <th>
+                            Interest
+                        </th>
+
+                        <th>
+                            EMI
+                        </th>
+
+                        <th>
+                            Total Payment
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <!-- JavaScript adds rows -->
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- LOADER -->
+<!-- ================================================= -->
+
+<div
+    id="loader"
+    style="display:none;"
+>
+
+
+    <div class="loader-card">
+
+
+        <div class="spinner">
+        </div>
+
+
+        <h2>
+            🤖 AI Analyzing
+        </h2>
+
+
+        <p>
+            Checking loan eligibility...
+        </p>
+
+
+        <p>
+            Calculating financial risk...
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
