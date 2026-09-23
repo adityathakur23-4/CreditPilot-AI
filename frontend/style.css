@@ -1,0 +1,1436 @@
+/* ============================================================
+   CREDITPILOT AI - COMPLETE CSS
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+body {
+    min-height: 100vh;
+    padding: 30px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            120deg,
+            #020617,
+            #0f172a,
+            #1e3a8a,
+            #2563eb
+        );
+
+    background-size: 400% 400%;
+
+    animation: backgroundMove 12s ease infinite;
+}
+
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================ */
+
+.container {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45);
+
+    text-align: center;
+
+    overflow: hidden;
+
+    animation: containerAppear 0.8s ease;
+}
+
+
+@keyframes containerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   AI SCANNING LINE
+   ============================================================ */
+
+.container::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #22c55e,
+            #60a5fa,
+            transparent
+        );
+
+    animation: scan 3s linear infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes scan {
+
+    from {
+        transform: translateY(-10px);
+    }
+
+    to {
+        transform: translateY(900px);
+    }
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+
+    animation: titleGlow 2s infinite alternate;
+}
+
+
+h2 {
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+    color: #60a5fa;
+}
+
+
+h3 {
+
+    margin: 12px 0;
+
+}
+
+
+@keyframes titleGlow {
+
+    from {
+        text-shadow:
+            0 0 5px #60a5fa;
+    }
+
+    to {
+        text-shadow:
+            0 0 25px #22c55e;
+    }
+}
+
+
+p {
+
+    color: #dbeafe;
+
+    line-height: 1.5;
+
+}
+
+
+/* ============================================================
+   AI AVATAR
+   ============================================================ */
+
+.ai-avatar {
+
+    margin: 25px auto 30px;
+
+    text-align: center;
+}
+
+
+.avatar-face {
+
+    width: 125px;
+    height: 125px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 58px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #22c55e,
+            #2563eb,
+            #0f172a
+        );
+
+    border: 3px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 0 25px rgba(34, 197, 94, 0.8),
+        inset 0 0 30px rgba(96, 165, 250, 0.7);
+
+    animation: avatarFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes avatarFloat {
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+.avatar-status {
+
+    margin-top: 12px;
+
+    color: #22c55e;
+
+    font-weight: bold;
+
+    animation: statusBlink 1.5s infinite;
+}
+
+
+@keyframes statusBlink {
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* ============================================================
+   INPUT AREA
+   ============================================================ */
+
+.input-box {
+
+    width: 100%;
+
+    text-align: left;
+}
+
+
+label {
+
+    display: block;
+
+    margin-top: 14px;
+    margin-bottom: 6px;
+
+    color: #bfdbfe;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 5px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+input:focus,
+select:focus {
+
+    box-shadow:
+        0 0 0 3px rgba(96, 165, 250, 0.35),
+        0 0 15px rgba(96, 165, 250, 0.4);
+
+    transform: translateY(-1px);
+}
+
+
+input::placeholder {
+
+    color: #64748b;
+}
+
+
+/* ============================================================
+   NOMINEE CARD
+   ============================================================ */
+
+.nominee-card {
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    text-align: left;
+}
+
+
+.nominee-card h2 {
+
+    text-align: center;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    color: #60a5fa;
+}
+
+
+.nominee-card label {
+
+    margin-top: 12px;
+}
+
+
+.nominee-card input,
+.nominee-card select {
+
+    margin-bottom: 5px;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.4);
+}
+
+
+button:active {
+
+    transform: scale(0.98);
+
+    box-shadow: none;
+}
+
+
+/* ============================================================
+   VOICE BUTTON
+   ============================================================ */
+
+.voice-btn {
+
+    background: #7c3aed;
+}
+
+
+.voice-btn:hover {
+
+    background: #6d28d9;
+
+}
+
+
+/* ============================================================
+   LOGIN BUTTON
+   ============================================================ */
+
+.login-btn {
+
+    background: #9333ea;
+}
+
+
+.login-btn:hover {
+
+    background: #7e22ce;
+
+}
+
+
+/* ============================================================
+   THEME BUTTON
+   ============================================================ */
+
+.theme-btn {
+
+    background: #f59e0b;
+
+    margin-bottom: 15px;
+}
+
+
+.theme-btn:hover {
+
+    background: #d97706;
+
+}
+
+
+/* ============================================================
+   REPORT BUTTON
+   ============================================================ */
+
+.report-btn {
+
+    background: #0ea5e9;
+
+    margin-top: 20px;
+}
+
+
+.report-btn:hover {
+
+    background: #0284c7;
+
+}
+
+
+/* ============================================================
+   VOICE TEXT
+   ============================================================ */
+
+#voiceText {
+
+    margin-top: 10px;
+
+    text-align: center;
+
+    color: #facc15;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   RESULT
+   ============================================================ */
+
+#result {
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    animation: resultFade 0.5s ease;
+
+    text-align: left;
+}
+
+
+@keyframes resultFade {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#result h2 {
+
+    text-align: center;
+
+    color: #60a5fa;
+}
+
+
+#result h3 {
+
+    color: #93c5fd;
+
+    font-size: 19px;
+}
+
+
+#result p {
+
+    margin: 10px 0;
+
+}
+
+
+#result ul {
+
+    padding-left: 10px;
+
+}
+
+
+#result li {
+
+    list-style: none;
+
+    margin: 9px 0;
+
+    color: #bbf7d0;
+
+}
+
+
+/* ============================================================
+   PREDICTION RESULT
+   ============================================================ */
+
+.prediction-result {
+
+    padding: 5px;
+}
+
+
+.prediction-error {
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(239, 68, 68, 0.15);
+
+    border:
+        1px solid #ef4444;
+}
+
+
+.prediction-error h2 {
+
+    color: #f87171;
+}
+
+
+.login-result {
+
+    text-align: center;
+
+    padding: 15px;
+}
+
+
+/* ============================================================
+   AI CARD
+   ============================================================ */
+
+.ai-card {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(34, 197, 94, 0.10);
+
+    border:
+        1px solid rgba(34, 197, 94, 0.3);
+
+    animation: aiGlow 2s infinite alternate;
+}
+
+
+@keyframes aiGlow {
+
+    from {
+
+        box-shadow:
+            0 0 5px rgba(34, 197, 94, 0.2);
+    }
+
+    to {
+
+        box-shadow:
+            0 0 25px rgba(34, 197, 94, 0.4);
+    }
+}
+
+
+/* ============================================================
+   EMI SECTION
+   ============================================================ */
+
+#emi,
+#interestAmount,
+#totalPayment {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #22c55e;
+
+    text-align: center;
+
+}
+
+
+/* ============================================================
+   COMPARISON CARD
+   ============================================================ */
+
+.comparison-card {
+
+    margin-top: 30px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.comparison-card h2 {
+
+    margin-top: 0;
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   BANK CARDS
+   ============================================================ */
+
+.bank-card {
+
+    padding: 20px;
+
+    margin: 20px 0;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.bank-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 0 25px rgba(96, 165, 250, 0.4);
+}
+
+
+.bank-card h3 {
+
+    color: #60a5fa;
+
+}
+
+
+.bank-card p {
+
+    margin: 10px 0;
+
+}
+
+
+.bank-card button {
+
+    background: #2563eb;
+
+}
+
+
+/* ============================================================
+   BEST BANK
+   ============================================================ */
+
+.best {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-top: 8px;
+
+    border-radius: 20px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   EXPENSIVE BANK
+   ============================================================ */
+
+.save {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-top: 8px;
+
+    border-radius: 20px;
+
+    background: #ef4444;
+
+    color: white;
+
+}
+
+
+/* ============================================================
+   LOAN TABLE
+   ============================================================ */
+
+#loanTable {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+
+#loanTable th {
+
+    padding: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+
+#loanTable td {
+
+    padding: 11px;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    color: #dbeafe;
+
+}
+
+
+#loanTable tr:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* ============================================================
+   DEBT TRAP DETECTOR
+   ============================================================ */
+
+.debt-trap-box {
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(12px);
+
+    text-align: left;
+
+    animation:
+        debtAppear 0.6s ease;
+}
+
+
+.debt-trap-box h3 {
+
+    text-align: center;
+
+    color: #60a5fa;
+
+    margin-bottom: 18px;
+}
+
+
+.debt-trap-box p {
+
+    margin: 12px 0;
+
+    color: #dbeafe;
+
+    line-height: 1.5;
+}
+
+
+.debt-trap-box strong {
+
+    color: white;
+}
+
+
+.debt-trap-box hr {
+
+    border: none;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    margin: 18px 0;
+}
+
+
+.debt-trap-box small {
+
+    display: block;
+
+    margin-top: 15px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+@keyframes debtAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   DEBT RISK COLORS
+   ============================================================ */
+
+.debt-low {
+
+    border: 2px solid #22c55e;
+
+    box-shadow:
+        0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+
+.debt-moderate {
+
+    border: 2px solid #facc15;
+
+    box-shadow:
+        0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+
+.debt-high {
+
+    border: 2px solid #f97316;
+
+    box-shadow:
+        0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+
+.debt-danger {
+
+    border: 2px solid #ef4444;
+
+    box-shadow:
+        0 0 25px rgba(239, 68, 68, 0.4);
+
+    animation:
+        debtDanger 1.5s infinite alternate;
+}
+
+
+@keyframes debtDanger {
+
+    from {
+
+        box-shadow:
+            0 0 10px rgba(239, 68, 68, 0.3);
+    }
+
+    to {
+
+        box-shadow:
+            0 0 30px rgba(239, 68, 68, 0.7);
+    }
+}
+
+
+/* ============================================================
+   DTI DISPLAY
+   ============================================================ */
+
+.dti-display {
+
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    background:
+        rgba(37, 99, 235, 0.15);
+}
+
+
+.dti-number {
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    color: #60a5fa;
+}
+
+
+/* ============================================================
+   RISK BADGES
+   ============================================================ */
+
+.risk-badge {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-top: 10px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+
+.low {
+
+    background: #22c55e;
+
+    color: white;
+}
+
+
+.medium {
+
+    background: #facc15;
+
+    color: #111827;
+}
+
+
+.high {
+
+    background: #ef4444;
+
+    color: white;
+}
+
+
+/* ============================================================
+   LOADER
+   ============================================================ */
+
+#loader {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 9999;
+}
+
+
+.loader-card {
+
+    width: 90%;
+    max-width: 380px;
+
+    padding: 40px 25px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #111827;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+
+    animation:
+        loaderAppear 0.4s ease;
+}
+
+
+.loader-card h2 {
+
+    color: #2563eb;
+
+    margin-top: 10px;
+}
+
+
+.loader-card p {
+
+    color: #475569;
+
+    margin: 8px 0;
+}
+
+
+@keyframes loaderAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ============================================================
+   SPINNER
+   ============================================================ */
+
+.spinner {
+
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border:
+        6px solid #e2e8f0;
+
+    border-top:
+        6px solid #2563eb;
+
+    animation:
+        spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   HORIZONTAL LINE
+   ============================================================ */
+
+hr {
+
+    border: none;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    margin: 30px 0;
+}
+
+
+/* ============================================================
+   LIGHT MODE
+   ============================================================ */
+
+body.light {
+
+    color: #111827;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #f8fafc,
+            #e0f2fe
+        );
+
+    background-size: 400% 400%;
+}
+
+
+body.light .container {
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    border:
+        1px solid rgba(15, 23, 42, 0.1);
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.15);
+}
+
+
+body.light p {
+
+    color: #334155;
+}
+
+
+body.light label {
+
+    color: #334155;
+}
+
+
+body.light .comparison-card,
+body.light .nominee-card,
+body.light .bank-card,
+body.light .debt-trap-box {
+
+    background:
+        rgba(255, 255, 255, 0.65);
+
+    border:
+        1px solid rgba(15, 23, 42, 0.1);
+}
+
+
+body.light .debt-trap-box p {
+
+    color: #334155;
+}
+
+
+body.light .debt-trap-box strong {
+
+    color: #111827;
+}
+
+
+body.light #loanTable td {
+
+    color: #334155;
+
+    border-bottom:
+        1px solid rgba(15, 23, 42, 0.1);
+}
+
+
+body.light hr {
+
+    border-top:
+        1px solid rgba(15, 23, 42, 0.15);
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    body {
+
+        padding: 15px;
+
+        align-items: flex-start;
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        padding: 25px;
+
+        border-radius: 22px;
+    }
+
+
+    h1 {
+
+        font-size: 29px;
+    }
+
+
+    .avatar-face {
+
+        width: 105px;
+        height: 105px;
+
+        font-size: 48px;
+    }
+
+
+    #loanTable {
+
+        font-size: 11px;
+    }
+
+
+    #loanTable th,
+    #loanTable td {
+
+        padding: 7px;
+    }
+
+
+    .comparison-card {
+
+        padding: 15px;
+
+        overflow-x: auto;
+    }
+
+
+    .bank-card {
+
+        padding: 15px;
+    }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    body {
+
+        padding: 10px;
+    }
+
+
+    .container {
+
+        padding: 18px;
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+    }
+
+
+    button {
+
+        font-size: 15px;
+
+        padding: 12px;
+    }
+
+
+    input,
+    select {
+
+        font-size: 14px;
+
+        padding: 12px;
+    }
+}
